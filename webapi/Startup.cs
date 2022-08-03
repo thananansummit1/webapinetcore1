@@ -15,6 +15,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using webapi.Attributes;
 using webapi.Core;
+using webapi.Service;
+using webapi.Service.Interface;
 
 namespace webapi
 {
@@ -37,6 +39,7 @@ namespace webapi
 
             services.AddScoped<ActionFilter>();
 
+            services.AddTransient<IProductService, ProductService>();
 
             // Get latest version
             JWT.Version = GetType().Assembly.GetName().Version.ToString();
